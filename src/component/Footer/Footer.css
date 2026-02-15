@@ -1,0 +1,189 @@
+/* Footer.css - Netflix Style Footer */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.footer_outer_container {
+  width: 100%;
+  background-color: #141414;
+  border-top: 1px solid #292929;
+}
+
+.footer_container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 70px 50px 30px 50px;
+}
+
+/* Social media icons section */
+.footer_social {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.footer_social li {
+  list-style: none;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.footer_social li:hover {
+  transform: scale(1.1);
+}
+
+.footer_social svg {
+  font-size: 28px;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.footer_social svg:hover {
+  color: #b3b3b3;
+}
+
+/* Footer links grid */
+.footer_links_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.footer_links_grid ul {
+  list-style: none;
+}
+
+.footer_links_grid li {
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+
+.footer_links_grid a {
+  color: #757575;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.footer_links_grid a:hover {
+  color: #b3b3b3;
+  text-decoration: underline;
+}
+
+/* Service code button */
+.footer_service_code {
+  margin-bottom: 30px;
+}
+
+.service_code_btn {
+  background: transparent;
+  border: 1px solid #757575;
+  color: #757575;
+  padding: 8px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.service_code_btn:hover {
+  color: white;
+  border-color: white;
+}
+
+/* Copyright section */
+.footer_copyright {
+  font-size: 11px;
+  color: #757575;
+  line-height: 1.5;
+}
+
+.footer_copyright p {
+  margin-bottom: 5px;
+}
+
+.footer_trademark {
+  font-size: 10px;
+}
+
+/* Responsive: adjust grid columns on smaller screens */
+@media screen and (max-width: 1024px) {
+  .footer_links_grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .footer_container {
+    padding: 60px 40px 25px 40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer_links_grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .footer_container {
+    padding: 50px 20px 20px 20px;
+  }
+  
+  .footer_social {
+    gap: 20px;
+  }
+  
+  .footer_social svg {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer_links_grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer_links_grid ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footer_links_grid li {
+    width: 48%;
+  }
+  
+  .footer_container {
+    padding: 40px 15px 15px 15px;
+  }
+  
+  .footer_social {
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .footer_social svg {
+    font-size: 22px;
+  }
+  
+  .service_code_btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .footer_links_grid li {
+    width: 100%;
+  }
+  
+  .footer_social {
+    gap: 12px;
+  }
+  
+  .footer_social svg {
+    font-size: 20px;
+  }
+}
