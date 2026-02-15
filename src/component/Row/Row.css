@@ -1,0 +1,292 @@
+/* Row.css - Netflix Style Row */
+
+.row {
+  color: white;
+  margin-left: 20px;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.row_title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Posters container - horizontal scroll */
+.row_posters {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding: 20px;
+  scroll-behavior: smooth;
+  gap: 10px;
+}
+
+/* Hide scrollbar but keep functionality */
+.row_posters::-webkit-scrollbar {
+  display: none;
+}
+
+.row_posters {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Poster container with hover effect */
+.row_poster_container {
+  position: relative;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.row_poster_container.hovered {
+  transform: scale(1.1);
+  z-index: 2;
+}
+
+/* Poster images */
+.row_poster {
+  width: 100%;
+  object-fit: contain;
+  max-height: 120px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.row_posterLarge {
+  max-height: 250px;
+  border-radius: 6px;
+}
+
+/* Hover info panel */
+.row_poster_info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(20, 20, 20, 0.95) 0%,
+    rgba(20, 20, 20, 0.8) 60%,
+    transparent 100%
+  );
+  color: white;
+  padding: 40px 15px 15px 15px;
+  border-radius: 4px;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+  pointer-events: none;
+}
+
+.row_poster_container.hovered .row_poster_info {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.poster_title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.poster_buttons {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.poster_button {
+  background: rgba(60, 60, 60, 0.8);
+  border: none;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.poster_button.play {
+  background: white;
+  color: black;
+  width: auto;
+  padding: 0 15px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.poster_button:hover {
+  background: rgba(120, 120, 120, 0.9);
+  transform: scale(1.05);
+}
+
+.poster_button.play:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.poster_rating {
+  font-size: 0.8rem;
+  color: #46d369;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.poster_overview {
+  font-size: 0.75rem;
+  line-height: 1.2;
+  color: #e5e5e5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Trailer Section */
+.row_trailer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 900px;
+  z-index: 1000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+}
+
+.close_trailer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 1001;
+}
+
+.close_trailer:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .row_title {
+    font-size: 1.2rem;
+  }
+  
+  .row_poster {
+    max-height: 100px;
+    display: flex;
+  }
+  
+  .row_posterLarge {
+    max-height: 200px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .row {
+    margin-left: 10px;
+  }
+  
+  .row_title {
+    font-size: 1.1rem;
+    margin-left: 10px;
+  }
+  
+  .row_posters {
+    padding: 10px;
+    gap: 8px;
+  }
+  
+  .row_poster {
+    max-height: 80px;
+  }
+  
+  .row_posterLarge {
+    max-height: 150px;
+  }
+  
+  .poster_title {
+    font-size: 0.9rem;
+  }
+  
+  .poster_buttons {
+    gap: 5px;
+  }
+  
+  .poster_button {
+    width: 25px;
+    height: 25px;
+    font-size: 0.8rem;
+  }
+  
+  .poster_button.play {
+    padding: 0 10px;
+  }
+  
+  .row_trailer {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .row_title {
+    font-size: 1rem;
+  }
+  
+  .row_poster {
+    max-height: 60px;
+  }
+  
+  .row_posterLarge {
+    max-height: 120px;
+  }
+  
+  .row_poster_container.hovered {
+    transform: scale(1.05);
+  }
+  
+  .row_poster_info {
+    padding: 30px 10px 10px 10px;
+  }
+  
+  .poster_overview {
+    font-size: 0.7rem;
+  }
+}
